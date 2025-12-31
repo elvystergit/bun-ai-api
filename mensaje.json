@@ -1,0 +1,8 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Resuelve Fibonacci en JavaScript"
+    }
+  ]
+}
