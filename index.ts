@@ -1,9 +1,11 @@
 import { cerebrasService } from "./services/cerebras";
+import { deepseekService } from "./services/deepseek";
 import { groqService } from "./services/groq";
 import type { AIService, ChatMessage } from "./types";
 
 const services: AIService[] = [groqService,
-cerebrasService
+cerebrasService,
+deepseekService
 ]
 let currentServiceIndex = 0;
 
