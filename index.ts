@@ -4,8 +4,8 @@ import { groqService } from "./services/groq";
 import type { AIService, ChatMessage } from "./types";
 
 const services: AIService[] = [
-    //groqService,
-//cerebrasService,
+    groqService,
+cerebrasService,
 deepseekService
 ]
 let currentServiceIndex = 0;
