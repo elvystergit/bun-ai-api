@@ -3,8 +3,9 @@ import { deepseekService } from "./services/deepseek";
 import { groqService } from "./services/groq";
 import type { AIService, ChatMessage } from "./types";
 
-const services: AIService[] = [groqService,
-cerebrasService,
+const services: AIService[] = [
+    //groqService,
+//cerebrasService,
 deepseekService
 ]
 let currentServiceIndex = 0;
