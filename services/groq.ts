@@ -1,4 +1,5 @@
 import { Groq } from 'groq-sdk';
+import type { AIService, ChatMessage } from '../types';
 
 const groq = new Groq();
 
