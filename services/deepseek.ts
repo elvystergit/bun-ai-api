@@ -8,7 +8,7 @@ export const deepseekService: AIService = {
   name: "Deepseek",
   async chat(messages: ChatMessage[]) {
     const stream = await openai.chat.completions.create({
-      model: "deepseek/deepseek-gpt4-32k",
+      model: "deepseek-chat",
       messages: messages as any,
       stream: true,
       max_tokens: 32000,
