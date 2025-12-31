@@ -1,8 +1,9 @@
+import { cerebrasService } from "./services/cerebras";
 import { groqService } from "./services/groq";
 import type { AIService, ChatMessage } from "./types";
 
 const services: AIService[] = [groqService,
-// Add other services here
+cerebrasService
 ]
 let currentServiceIndex = 0;
 
@@ -13,14 +14,18 @@ function getNextService() {
     return service;
 }
 
+//Servidor Bun para manejar solicitudes de chat y transmitir respuestas
 const server = Bun.serve({
     port: process.env.PORT ?? 3000,
     async fetch(req) {
         const { pathname } = new URL(req.url)
 
+// Manejar solicitudes POST a /chat y transmitir respuestas de AI services        
 if (req.method === 'POST' && pathname === '/chat') {
     const { messages } = await req.json() as { messages: ChatMessage[] };
     const service = getNextService();
+
+    console.log(`Using service: ${service?.name} service for this request.`);
     const stream = await service?.chat(messages)
 
 
@@ -37,4 +42,4 @@ return new Response('Not Found', { status: 404 });
     }
 })
 
-console.log(`Server running at http://localhost:${server.port}/`);
+console.log(`Server running on ${server.hostname}:${server.port}`);

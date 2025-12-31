@@ -19,7 +19,7 @@ const chatCompletion = await groq.chat.completions.create({
 
 return (async function* () {
 for await (const chunk of chatCompletion) {
-  yield chunk.choices[0]?.delta?.content || ''
+  yield chunk.choices[0]?.delta?.content || ''  
 }
 })()
 }
