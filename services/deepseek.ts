@@ -10,10 +10,7 @@ export const deepseekService: AIService = {
     const stream = await openai.chat.completions.create({
       model: "gpt-5",
       messages: messages as any,
-      stream: true,
-      max_tokens: 32000,
-      temperature: 0.7,
-      top_p: 0.9,
+      stream: true
     });
 
     return (async function* () {
